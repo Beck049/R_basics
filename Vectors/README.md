@@ -1,5 +1,9 @@
 # Vectors
 
+an array of same data type elements
+a vector's element can be modified
+but the length of a vector is static **(unchangeable)**
+
 ## assign a vector
 ```R
 fruits <- c("banana", "apple", "orange", "mango", "lemon")
