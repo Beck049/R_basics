@@ -44,7 +44,7 @@ $b
 [1] 555
 
 $c
-[1] "hello"
+[1] "pear"
 ```
 
 ## add element into list
