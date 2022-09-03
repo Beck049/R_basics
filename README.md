@@ -1,5 +1,7 @@
 # R_basics
 
+[ToF]
+
 ## Data Types
 
 ### numeric
@@ -67,9 +69,11 @@ x
 [1] TRUE
 ```
 
+-----
+
 ## Operators
 
-|numeric|description|examples|
+|number|description|examples|
 |:---:|:---|:---:|
 | + |  add  | 2 + 3 = 5 |
 | - | minus | 5 - 4 = 1|
@@ -87,6 +91,8 @@ x
 | < | Less than | x < y |
 | >= | Greater than or equal to | x >= y|
 | <= | Less than or equal to | x <= y |
+
+-----
 
 ## common functions
 
