@@ -52,9 +52,9 @@ $c
 my_list <- list(a = c(1, 4, 2, 7),
                 b = 555,
                 c = "hello")
-vec = c(1, 2, 3)
+lst = list(d = c(0, 0, 0), e = 4)
 
-my_list <- append(my_list, vec)
+my_list <- append(my_list, lst)
 
 my_list <- append(my_list, "third", after = 2)
 
@@ -73,14 +73,11 @@ $b
 $c
 [1] "hello"
 
-[[5]]
-[1] 1
+$d
+[1] 0 0 0
 
-[[6]]
-[1] 2
-
-[[7]]
-[1] 3
+$e
+[1] 4
 ```
 
 ## remove element in list
