@@ -40,9 +40,9 @@ x
 [1] 3+9i
 ```
 
-> **numeric** is for all types of real number
-> **integer** needs to add "L" in the end 
-> **complex** is the imaginary number
+> **numeric** is for all types of real number <br>
+> **integer** needs to add "L" in the end <br>
+> **complex** is the imaginary number <br>
 
 ### character
 ```R
