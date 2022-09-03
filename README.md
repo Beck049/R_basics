@@ -204,7 +204,7 @@ cnt1
 ```cml
 [1] 5
 ```
-> break: stops the whole loop
+> break: stops the whole loop <br>
 > next : immediatly go to the next loop
 
 ## for loop
