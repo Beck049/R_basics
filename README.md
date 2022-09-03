@@ -1,5 +1,14 @@
 # R_basics
 
+[R_basics]
+- Data Structure
+- - [Vectors]
+- - [Lists]
+- - [Matrix]
+- - [Factor]
+- - [Dataframes]
+- Graphic
+- Statistics
 
 ## Data Types
 
