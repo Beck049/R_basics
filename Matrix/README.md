@@ -41,6 +41,23 @@ thismatrix[, 2]
 [1] 4 5 6
 ```
 
+## add col & row name
+```R
+netmat <- rbind(c(0,1,1,0,0),  c(0,0,1,1,0), c(0,1,0,0,0),  c(0,0,0,0,0),  c(0,0,1,0,0))
+rownames(netmat) <- c("A","B","C","D","E") 
+colnames(netmat) <- c("A","B","C","D","E")
+```
+```cml
+  A B C D E
+A 0 1 1 0 0
+B 0 0 1 1 0
+C 0 1 0 0 0
+D 0 0 0 0 0
+E 0 0 1 0 0
+```
+
+-----
+
 ## add a row or column
 ```R
 thismatrix <- matrix(c("apple", "banana", "cherry", "orange","grape", "pineapple", "pear", "melon", "fig"), nrow = 3, ncol = 3)
