@@ -2,11 +2,11 @@
 
 [R_basics]
 - Data Structure
-- - [Vectors]
-- - [Lists]
-- - [Matrix]
-- - [Factor]
-- - [Dataframes]
+  - [Vectors]
+  - [Lists]
+  - [Matrix]
+  - [Factor]
+  - [Dataframes]
 - Graphic
 - Statistics
 
