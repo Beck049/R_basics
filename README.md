@@ -1,6 +1,5 @@
 # R_basics
 
-[ToF]
 
 ## Data Types
 
@@ -158,3 +157,80 @@ paste(str, "or not ?")
 [1] "This is a string or not ?"
 ```
 
+## if else
+```R
+a <- 200
+b <- 33
+
+if (b > a) {
+  print("b is greater than a")
+} else if (a == b) {
+  print("a and b are equal")
+} else {
+  print("a is greater than b")
+}
+```
+
+## while loop
+
+```R
+i <- 1
+cnt1 <- 0
+while( i <= 6 ) {
+  if( i == 4 ) {
+    break
+  }
+  cnt <- cnt+1
+  i <- i+1
+}
+cnt1
+```
+```cml
+[1] 3
+```
+
+```R
+i <- 1
+cnt1 <- 0
+while( i <= 6 ) {
+  if( i == 4 ) {
+    next
+  }
+  cnt <- cnt+1
+  i <- i+1
+}
+cnt1
+```
+```cml
+[1] 5
+```
+> break: stops the whole loop
+> next : immediatly go to the next loop
+
+## for loop
+
+```R
+fruits <- list("apple", "banana", "cherry")
+
+for(x in fruits) {
+  print(x)
+}
+```
+```cml
+[1] "apple"
+[1] "banana"
+[1] "cherry"
+```
+
+## function
+
+```R
+my_func <- function(fn, ln) {
+  paste(fn, ln)
+}
+
+my_func("Beck", "049")
+```
+```cml
+[1] "Beck 049"
+```
