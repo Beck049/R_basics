@@ -2,10 +2,10 @@
 
 [R_basics]
 - Data Structure
-  - [Vectors]
-  - [Lists]
-  - [Matrix]
-  - [Factor]
+  - [Vectors](https://github.com/Beck049/R_basics/tree/main/Vectors)
+  - [Lists](https://github.com/Beck049/R_basics/tree/main/Lists)
+  - [Matrix](https://github.com/Beck049/R_basics/tree/main/Matrix)
+  - [Factor](https://github.com/Beck049/R_basics/tree/main/Factor)
   - [Dataframes](https://github.com/Beck049/R_basics/tree/main/Dataframes)
 - Graphic
 - Statistics
