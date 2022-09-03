@@ -23,17 +23,16 @@ $c
 
 [1] 3
 ```
+## get the element in vector
 ```R
-# get the element in vector
 my_list[1]
 ```
 ```cml
 $a
 [1] 1 4 2 7
 ```
-
+## change the element
 ```R
-# change the element
 my_list[3] <- "pear"
 my_list
 ```
