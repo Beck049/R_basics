@@ -87,7 +87,7 @@ head(fb)
 > why there're `NaN` in CPC <br>
 > if the `Click` value is `0`, divide 0 will cause `NaN`, which means **Not-a-Number**
 
-### what if we want to change `NaN` to 0, since click is 0, then CPC is 0
+#### what if we want to change `NaN` to 0, since click is 0, then CPC is 0
 ```r
 fb$CPC = ifelse( fb$Clicks != 0, fb$Spent / fb$Clicks, 0 )
 
@@ -104,7 +104,7 @@ head(fb)
 6 708820             916         103929 30-34      M       29        1915       0  0.00                1                   1   0.00000000    0 
 ```
 
-## calculate some values
+### calculate some values
 now we have values `CTR`, `CPC`
 we can summarise the data by calculating maximun, mean, etc...
 
@@ -128,6 +128,8 @@ ctr_cal
  CTR_mean     CTR_median    CTR_max     CTR_min
  0.01641967	  0.0159809	    0.1059322	    0	
 ```
+> `summary()` needs `dplyr` library
+
 ### What else can we do
 |method|code|description|
 |:---:|:---:|:---|
@@ -147,5 +149,57 @@ ctr_cal
 
 ------
 
+## make a table
+
+### examine the non-repetitive values
+check the non-repetitive values, usually used in `character` or `farctor` data type
+```r
+unique(fb$gender)
+unique(fb$age)
+```
+```cml
+[1] "M" "F"
+[1] "30-34" "35-39" "40-44" "45-49"
+```
+
+### categorize the data
+How many Male/Female and the age range
+```r
+table(fb$age, fb$gender)
+```
+```cml
+          F   M
+  30-34 197 229
+  35-39 109 139
+  40-44 107 103
+  45-49 138 121
+```
+it's easy, but what if we want "M" at the first row
+and change the "M" label into "Male"...
+```r
+uni_gen <- unique(fb$gender)
+fb$gender_factor=factor(fb$gender,
+                        levels=uni_gen, 
+                        labels = c("Male", "Female"))
+str(fb$gender_factor)
+table(fb$age, fb$gender_factor)
+```
+```cml
+Factor w/ 2 levels "Male","Female": 1 1 1 1 1 1 1 1 1 1 ...
+
+        Male Female
+  30-34  229    197
+  35-39  139    109
+  40-44  103    107
+  45-49  121    138
+```
+> we'll need `factors` <br>
+> `levels` = the value in data_frame <br>
+> `labels` = the display value corresponding to `levels` <br>
+> > always remember to check `factor` by using `str()` <br>
+
+------
 
 
+
+[DataExplorer]
