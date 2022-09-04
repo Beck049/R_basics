@@ -22,6 +22,9 @@ plot_histogram(fb)
 fb$missing <- fb$Total_Conversion/fb$Clicks
 plot_missing(fb)
 ```
+> In this case we modify a data that cause `NaN` by divide 0 <br>
+> we can observe that the missing rate is 0.26, <br> 
+> which means 26% of the data is missing <br>
 
 <img src="./missing.png" width="50%">
 
