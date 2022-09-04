@@ -5,15 +5,15 @@ use Facebook_conversions.csv to do some analyze
 ## Packages
 
 first, we should install some useful packages
-```{r}
-#install.packages("tidyverse")
-#install.packages("dplyr")
-#install.packages("ggplot2")
-#install.packages("DataExplorer")
+```r
+install.packages("tidyverse")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("DataExplorer")
 ```
 
 then load the library
-```{r}
+```r
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
@@ -21,7 +21,7 @@ library(DataExplorer)
 ```
 
 ## Import Data
-```{r}
+```r
 #import data
 fb=read.csv("Facebook_conversion_data.csv")
 head(fb)
