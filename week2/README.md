@@ -59,6 +59,8 @@ str(fb)
 ```
 > we can see the data_type of every column <br>
 
+------
+
 ## add column to data_frame
 ```r
 # add a column directly
@@ -77,8 +79,39 @@ head(fb)
 6 708820             916         103929 30-34      M       29        1915       0  0.00                1                   1   0.00000000  NaN 
 ```
 > we can find out that `CRT`, `CPC` are automatically added into `fb` <br>
-> > CTR: Clicks per Impression <br>
-> > CPC: Cost per Click <br>
+> > `CTR`: Clicks per Impression <br>
+> > `CPC`: Cost per Click <br>
 
 > why there're `NaN` in CPC <br>
 > if the `Click` value is `0`, divide 0 will cause `NaN`, which means **Not-a-Number**
+
+**what if we want to change `NaN` to 0, since click is 0, then CPC is 0**
+```r
+fb$CPC = ifelse( fb$Clicks != 0, fb$Spent / fb$Clicks, 0 )
+
+head(fb)
+```
+`CPC` is now changed
+```cml
+   ad_id xyz_campaign_id fb_campaign_id   age gender interest Impressions  Clicks Spent Total_Conversion Approved_Conversion         CTR   CPC 
+1 708746             916         103916 30-34      M       15        7350       1  1.43                2                   1   0.01360544 1.43
+2 708749             916         103917 30-34      M       16       17861       2  1.82                2                   0   0.01119758 0.91
+3 708771             916         103920 30-34      M       20         693       0  0.00                1                   0   0.00000000    0
+4 708815             916         103928 30-34      M       28        4259       1  1.25                1                   0   0.02347969 1.25
+5 708818             916         103928 30-34      M       28        4133       1  1.29                1                   1   0.02419550 1.29 
+6 708820             916         103929 30-34      M       29        1915       0  0.00                1                   1   0.00000000    0 
+```
+
+## calculate some values
+now we have values `CTR`, `CPC`
+we can summarise the data by calculating maximun, mean, etc...
+```r
+summarise(fb, CTR_mean = mean(CTR)
+            , CTR_median = median(CTR)
+            , CTR_max = max(CTR)
+            , CTR_min = min(CTR))
+```
+```cml
+  CTR_mean   CTR_median     CTR_max   CTR_min
+0.01641967	  0.0159809	  0.1059322	       0	
+```
