@@ -85,7 +85,7 @@ head(fb)
 > why there're `NaN` in CPC <br>
 > if the `Click` value is `0`, divide 0 will cause `NaN`, which means **Not-a-Number**
 
-**what if we want to change `NaN` to 0, since click is 0, then CPC is 0**
+### what if we want to change `NaN` to 0, since click is 0, then CPC is 0
 ```r
 fb$CPC = ifelse( fb$Clicks != 0, fb$Spent / fb$Clicks, 0 )
 
