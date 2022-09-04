@@ -14,6 +14,9 @@
 **Course**
 
 - [week2](https://github.com/Beck049/R_basics/tree/main/week2)
+  - [First Project](https://github.com/Beck049/R_basics/tree/main/week2/First_Project)
+  - [DataExplorer](https://github.com/Beck049/R_basics/tree/main/week2/DataExplorer)
+  - [Linear Regression]()
 
 ## Data Types
 
