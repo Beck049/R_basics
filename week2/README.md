@@ -68,7 +68,17 @@ fb$CPC = fb$Spent / fb$Clicks
 head(fb)
 ```
 ```cml
+   ad_id xyz_campaign_id fb_campaign_id   age gender interest Impressions  Clicks Spent Total_Conversion Approved_Conversion         CTR   CPC 
+1 708746             916         103916 30-34      M       15        7350       1  1.43                2                   1   0.01360544 1.43
+2 708749             916         103917 30-34      M       16       17861       2  1.82                2                   0   0.01119758 0.91
+3 708771             916         103920 30-34      M       20         693       0  0.00                1                   0   0.00000000  NaN
+4 708815             916         103928 30-34      M       28        4259       1  1.25                1                   0   0.02347969 1.25
+5 708818             916         103928 30-34      M       28        4133       1  1.29                1                   1   0.02419550 1.29 
+6 708820             916         103929 30-34      M       29        1915       0  0.00                1                   1   0.00000000  NaN 
 ```
-> we can find out that `CRT`, `CPC` are automatically added into `fb`
-> > CTR: Clicks per Impression
-> > CPC: Cost per Click
+> we can find out that `CRT`, `CPC` are automatically added into `fb` <br>
+> > CTR: Clicks per Impression <br>
+> > CPC: Cost per Click <br>
+
+> why there're `NaN` in CPC <br>
+> if the `Click` value is `0`, divide 0 will cause `NaN`, which means **Not-a-Number**
