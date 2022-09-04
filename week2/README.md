@@ -105,13 +105,45 @@ head(fb)
 ## calculate some values
 now we have values `CTR`, `CPC`
 we can summarise the data by calculating maximun, mean, etc...
+
 ```r
-summarise(fb, CTR_mean = mean(CTR)
+mean(fb$CTR)
+```
+```cml
+[1] 0.01641967
+```
+
+### make multiple value into table
+```r
+ctr_cal <- summarise(fb, CTR_mean = mean(CTR)
             , CTR_median = median(CTR)
             , CTR_max = max(CTR)
             , CTR_min = min(CTR))
+            
+ctr_cal
 ```
 ```cml
-  CTR_mean   CTR_median     CTR_max   CTR_min
-0.01641967	  0.0159809	  0.1059322	       0	
+ CTR_mean     CTR_median    CTR_max     CTR_min
+ 0.01641967	  0.0159809	    0.1059322	    0	
 ```
+### What else can we do
+|method|code|description|
+|:---:|:---:|:---|
+|mean|mean(x)||
+|median|median(x)||
+|sum|sum(x)||
+|standard deviation|sd(x)||
+|interquartile|IQR(x)||
+|maximum|max(x)||
+|minimun|min(x)||
+|quantile|quantile(x)||
+|first observation|first(x)||
+|last observation|last(x)||
+|nth observation|nth(x, n)||
+|number of occurrence|n(x)||
+|number of distinct occurrence|n_distinct(x)||
+
+------
+
+
+
