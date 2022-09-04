@@ -61,7 +61,9 @@ str(fb)
 
 ------
 
-## add column to data_frame
+## Summary the Data_Frame
+
+### add column to data_frame
 ```r
 # add a column directly
 fb$CTR = (fb$Clicks / fb$Impressions) * 100 
