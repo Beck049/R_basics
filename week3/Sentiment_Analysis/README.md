@@ -1,4 +1,8 @@
 # Sentiment Analysis
+1. how to get data from twitter using Twitter API
+2. create a .rds file
+3. read a .rds file
+4. use function `get_nrc_sentiment()`
 
 ## packages
 ```r
@@ -120,4 +124,47 @@ table(sub_climate_tweets$source)
                         1                         1                         1                        47 
          Twitter for iPad        Twitter for iPhone           Twitter Web App 
                         4                        70                        66 
-                        ```
+```
+
+## Visualize
+- plot_bar()
+```r
+plot_bar(sub_climate_tweets)
+```
+- plot_histogram()
+```r
+plot_histogram(sub_climate_tweets)
+```
+- plot_missing()
+```r
+plot_missing(sub_climate_tweets)
+```
+- plot_correlation()
+```r
+plot_correlation(sub_climate_tweets)
+```
+
+## Summarise the data
+- what is the mean, median, max, sd(standard deviation) of favorite_count?
+
+- follow the question, what if group_by criteria "is_quote"
+
+## Sentiment
+use `get_nrc_sentiment()` to generate sentiment score
+```r
+tweets=climate_tweets$text
+sentiment <- get_nrc_sentiment(tweets)
+
+head(sentiment)
+```
+```cml
+  anger  anticipation  disgust   fear   joy  sadness  surprise  trust  negative  positive
+1     0             1        0      1     0        0         0      0         0         0
+2     0             0        0      1     0        0         0      0         0         0
+3     1             0        0      2     0        2         1      0         2         0
+4     0             0        0      1     0        0         0      1         0         0
+5     1             1        1      4     0        2         0      1         3         2
+6     0             0        0      1     0        1         1      0         2         0
+```
+
+
