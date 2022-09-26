@@ -19,7 +19,7 @@
   - [Linear Regression](https://github.com/Beck049/R_basics/tree/main/week2/Linear_Regression)
 - [week3](https://github.com/Beck049/R_basics/tree/main/week3)
   - [Sentiment Analysis](https://github.com/Beck049/R_basics/tree/main/week3/Sentiment_Analysis)
-  - [Word Cloud]
+  - [Word Cloud](https://github.com/Beck049/R_basics/tree/main/week3/Word_Cloud)
 - [week5]
   - [Network]
   
