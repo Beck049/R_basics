@@ -166,5 +166,73 @@ head(sentiment)
 5     1             1        1      4     0        2         0      1         3         2
 6     0             0        0      1     0        1         1      0         2         0
 ```
+### visualize in bar plot
+```r
+barplot(colSums(sentiment),   # this is the value for every bar, 
+                              # colSums is a function to calculate the sum of each column
+        las = 2,   # make label text perpendicular to axis
+        col = rainbow(10),
+        ylab = 'Count',
+        main = 'Sentiment Scores Tweets'
+        )
+```
 
+## Linear Regression about how sentiment affect favor_count
+
+1. bind sentiment & favorite_count as favorite
+```r
+combined=cbind(sentiment,favorite=climate_tweets$favorite_count) 
+#we add a label 'favorite' for data favorite_count
+#function cbind combines the columns
+head(combined)
+```
+```cml
+    anger anticipation  disgust   fear  joy  sadness surprise   trust negative positive favorite
+1       0            1        0      1    0        0        0       0        0        0        0
+2       0            0        0      1    0        0        0       0        0        0        0
+3       1            0        0      2    0        2        1       0        2        0        0
+4       0            0        0      1    0        0        0       1        0        0        0
+5       1            1        1      4    0        2        0       1        3        2        0
+6       0            0        0      1    0        1        1       0        2        0        0
+```
+2. do linear regression 
+let `favorite` be dependent
+and `others` be independent
+```r
+relation=lm(Favorite ~ anger + anticipation + disgust + fear + joy + sadness + surprise + trust + negative + positive, data=combined)
+summary(relation)
+```
+```cml
+Call:
+lm(formula = favorite ~ anger + anticipation + disgust + fear + 
+    joy + sadness + surprise + trust + negative + positive, data = combined)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-7.268 -1.498 -0.935  0.333 85.263 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)  
+(Intercept)    1.4950     1.1088   1.348   0.1792  
+anger         -1.1386     1.0208  -1.115   0.2661  
+anticipation  -0.4714     0.9765  -0.483   0.6299  
+disgust       -0.6662     1.1180  -0.596   0.5520  
+fear          -0.2122     0.9133  -0.232   0.8166  
+joy            0.0552     1.3269   0.042   0.9669  
+sadness       -1.0059     1.0072  -0.999   0.3192  
+surprise       2.6538     1.0835   2.449   0.0152 *
+trust          0.0186     0.7951   0.023   0.9814  
+negative       0.8918     0.7726   1.154   0.2498  
+positive      -0.3477     0.5180  -0.671   0.5029  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.468 on 189 degrees of freedom
+Multiple R-squared:  0.05296,	Adjusted R-squared:  0.002848 
+F-statistic: 1.057 on 10 and 189 DF,  p-value: 0.3979
+```
+
+3. Interprete the result
+```r
+```
 
