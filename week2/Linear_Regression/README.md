@@ -16,8 +16,9 @@ summary(relation)
 
 > lm( fitting_formula, dataframe ) <br>
 > > **fitting_formula** <br>
-> > Yvar ~ Xvar : Yvar is  dependent  (predicted) <br>
-> >               Xvar is independent (predictor) <br>
+> > Yvar ~ Xvar : <br>
+> > Yvar is  dependent  (predicted) <br>
+> > Xvar is independent (predictor) <br>
 
 ```cml
 Call:
@@ -46,12 +47,45 @@ result <-  predict(relation,a)    # use the relation we set above
 result
 ```
 > predict( object, newdata, interval ) <br>
-> >  object : the class inheriting from 'lm' <br>
-> > newdata : input data to predict <br>
-> > interval: type of interval calculation <br>
+> >  **object** : the class inheriting from 'lm' <br>
+> > **newdata **: input data to predict <br>
+> > **interval**: type of interval calculation <br>
 ```cml
         1         2         3 
  7.295392 11.411837 15.528281 
 ```
 predict the corresponding Total_Conversion
 using given values of Spent ( c(170, 280, 390) )
+
+## Visualize
+
+### plot()
+```r
+# Plot the chart.
+plot( fb$Spent, fb$Total_Conversion, 
+      col = "black",
+      main = "Spent and Conversion Regression",
+      abline(lm(Total_Conversion~Spent,data=fb)), 
+      xlab = "Amount spent on campaign",
+      ylab = "Total number of conversions")
+```
+
+### ggplot
+```r
+#plot the data together with the fitted line
+ggplot(fb, aes(Spent, Total_Conversion)) 
++ geom_point() 
++ geom_smooth(method = "lm") 
++ labs(x = "Amount spent on campaign", y = "Total number of conversions")
+```
+
+## Multiple Regressors
+```r
+relation <- lm(Total_Conversion ~ Spent + gender_factor + age_factor, data=fb)
+summary(relation)
+```
+
+### visualize
+```r
+plot_coefs(relation)
+```
