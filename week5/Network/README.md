@@ -52,7 +52,7 @@ C 0 1 0 0 0
 D 0 0 0 0 0
 E 0 0 1 0 0
  ```
- <img>
+<img src="./adj01.png" width="50%">
  
  ### EX2
  ```r
@@ -97,7 +97,7 @@ Bob     1   0     1    0
 Carol   0   1     0    1
 Dick    1   0     1    0
  ```
- <img>
+<img src="./adj02.png" width="50%">
  
  ## Network  Representation with EdgeList
  1. create a EdgeList
@@ -146,7 +146,7 @@ D 0 0 0 0 0
 E 0 0 1 0 0
  ```
  
- <img>
+<img src="./edg01.png" width="50%">
  
  ### EX2
  ```r
@@ -188,5 +188,4 @@ B 0 0 1 1
 C 0 0 0 1
 D 0 0 0 0
  ```
- <img>
- 
+<img src="./edg02.png" width="50%">
