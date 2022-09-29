@@ -166,13 +166,88 @@ Content:  documents: 5
 [5] given  unbelievable evil  growing trend  global governance   push    control    doubt  end times  upon us\n\nbelieve upon  name  jesus christ  repent  theres still time httpstcoqkcntgrdl
 ```
 
-:::warning
-Warnings are normal, due to using Corpus(), instead of VCorpus()
-:::
+> Warnings are normal, due to using Corpus(), instead of VCorpus()
+  
+## Term Document Matrix (檢索文件矩陣)
 
-## Term Document Matrix
+```r
+tdm <- TermDocumentMatrix(cleanset) # this is still a list
+tdm <- as.matrix(tdm) # transform the list into a matrix
+tdm[1:10, 1:20] # the rownames of this matrix are the terms.
+```
+```cml
+                Docs
+Terms            1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+  always         1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0
+  cars           1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0
+  doesn’t        1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0
+  energy         1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0
+  free           1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0
+  httpstcosohryk 1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0
+  make           1 0 0 0 0 0 0 0 0  0  0  0  0  0  1  0  0  0  0  0
+  much           1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0
+  profit         1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0
+  promote        1 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0
+```
 
 ## Word Frequentcy
+```r
+temp=rowSums(tdm) # sum up the row (now its a list again)
+words <- sort(temp,decreasing=TRUE) # sort in decreasing order
+
+# make it a dataframe
+# word(str) : freq(int)
+df <- data.frame(word = names(words),freq=words) 
+head(df, 10)
+```
+```cml
+         word freq
+will     will   35
+amp       amp   30
+people people   24
+’s         ’s   19
+time     time   18
+like     like   17
+can       can   16
+know     know   13
+just     just   13
+world   world   12
+```
+
+### Generate Barplot
+```r
+barplot(df[1:10,]$freq, 
+        las = 2, 
+        names.arg = df[1:10,]$word,
+        col ="lightblue", 
+        main ="Most frequent words",
+        ylab = "Word frequencies")
+```
+<img src="./freq_word.png" width="50%">
 
 ## Word Cloud
+```r
+set.seed(222) # this is just a number to keep the graph fixed.
+wordcloud(words = df$word,
+          freq = df$freq,
+          max.words = 100, # max number of words
+          random.order = F,
+          min.freq = 10, # no need to include infrequent words
+          colors = brewer.pal(8, 'Dark2'),
+          scale = c(5, 0.3),
+          rot.per = 0.7)
+```
+<img src="./cloud1.png" width="50%">
 
+```r
+set.seed(222) # this is just a number to keep the graph fixed.
+wordcloud(words = df$word,
+          freq = df$freq,
+          max.words = 100, # max number of words
+          random.order = F,
+          min.freq = 20, # no need to include infrequent words
+          colors = brewer.pal(8, 'Dark2'),
+          scale = c(5, 0.3),
+          rot.per = 0.7)
+```
+<img src="./cloud2.png" width="50%">
