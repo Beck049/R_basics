@@ -20,9 +20,9 @@
 - [week3](https://github.com/Beck049/R_basics/tree/main/week3)
   - [Sentiment Analysis](https://github.com/Beck049/R_basics/tree/main/week3/Sentiment_Analysis)
   - [Word Cloud](https://github.com/Beck049/R_basics/tree/main/week3/Word_Cloud)
-- [week5]
-  - [Network]
-  
+- [week5](https://github.com/Beck049/R_basics/tree/main/week5)
+  - [Network](https://github.com/Beck049/R_basics/tree/main/week5/Network)
+- [week6]()
 
 ## Data Types
 
