@@ -163,6 +163,24 @@ sum_cli
 ```
 
 - follow the question, what if group_by criteria "is_quote"
+```r
+group_cli = sub_climate_tweets %>% group_by(is_quote)
+
+sum_cli <- summarise(group_cli, 
+                     cli_mean = mean(favorite_count),
+                     cli_median = median(favorite_count),
+                     cli_max = max(favorite_count),
+                     cli_sd = sd(favorite_count))
+
+sum_cli
+```
+```cml
+# A tibble: 2 × 5
+  is_quote   cli_mean   cli_median    cli_max    cli_sd
+  <lgl>         <dbl>        <dbl>      <int>     <dbl>
+1 FALSE         1.27             0         92      7.83
+2 TRUE          0.778            0          4      1.31
+```
 
 ## Sentiment
 use `get_nrc_sentiment()` to generate sentiment score
