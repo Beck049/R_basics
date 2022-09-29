@@ -27,7 +27,11 @@ library(tm)
 climate_tweets<-readRDS(file = "climate_tweets.rds")
 ```
 
-## Corpus
+## Corpus (語料庫)
+clean up the data(string) into useful word sets
+1. remove punctuation
+2. remove meaningless words
+3. reduce spaces
 
 ### Generate corpus
 ```r
@@ -161,3 +165,10 @@ Content:  documents: 5
 [4] guycourier kmonty   👀😳                                                                                                                                                                  
 [5] given  unbelievable evil  growing trend  global governance   push    control    doubt  end times  upon us\n\nbelieve upon  name  jesus christ  repent  theres still time httpstcoqkcntgrdl
 ```
+
+## Term Document Matrix
+
+## Word Frequentcy
+
+## Word Cloud
+
