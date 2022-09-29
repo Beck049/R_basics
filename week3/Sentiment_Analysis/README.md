@@ -131,14 +131,20 @@ table(sub_climate_tweets$source)
 ```r
 plot_bar(sub_climate_tweets)
 ```
+<img src="./plot_bar.png" width="50%">
+
 - plot_histogram()
 ```r
 plot_histogram(sub_climate_tweets)
 ```
+<img src="./histogram.png" width="50%">
+
 - plot_missing()
 ```r
 plot_missing(sub_climate_tweets)
 ```
+<img src="./plot_missing.png" width="50%">
+
 - plot_correlation()
 ```r
 plot_correlation(sub_climate_tweets)
@@ -209,6 +215,7 @@ barplot(colSums(sentiment),   # this is the value for every bar,
         main = 'Sentiment Scores Tweets'
         )
 ```
+<img src="./visual_bar_rainbow.png" width="50%">
 
 ## Linear Regression about how sentiment affect favor_count
 
