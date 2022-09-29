@@ -146,6 +146,21 @@ plot_correlation(sub_climate_tweets)
 
 ## Summarise the data
 - what is the mean, median, max, sd(standard deviation) of favorite_count?
+```r
+sum_cli <- summarise(sub_climate_tweets, 
+                     cli_mean = mean(favorite_count),
+                     cli_median = median(favorite_count),
+                     cli_max = max(favorite_count),
+                     cli_sd = sd(favorite_count))
+
+sum_cli
+```
+```cml
+# A tibble: 1 × 4
+  cli_mean   cli_median   cli_max    cli_sd
+     <dbl>        <dbl>     <int>     <dbl>
+1     1.23            0        92      7.48
+```
 
 - follow the question, what if group_by criteria "is_quote"
 
