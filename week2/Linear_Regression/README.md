@@ -63,21 +63,22 @@ using given values of Spent ( c(170, 280, 390) )
 ```r
 # Plot the chart.
 plot( fb$Spent, fb$Total_Conversion, 
-      col = "black",
-      main = "Spent and Conversion Regression",
-      abline(lm(Total_Conversion~Spent,data=fb)), 
-      xlab = "Amount spent on campaign",
-      ylab = "Total number of conversions")
+      col = "black", # color
+      main = "Spent and Conversion Regression", # Topic
+      abline(lm(Total_Conversion~Spent,data=fb)),  # Add the conversion line
+      xlab = "Amount spent on campaign", # x-Label
+      ylab = "Total number of conversions") # y-Label
 ```
 <img src="./plot.png" width="50%">
 
 ### ggplot
 ```r
 #plot the data together with the fitted line
-ggplot(fb, aes(Spent, Total_Conversion)) 
-+ geom_point() 
-+ geom_smooth(method = "lm") 
-+ labs(x = "Amount spent on campaign", y = "Total number of conversions")
+ggplot(fb, 
+    aes(Spent, Total_Conversion)) # select the datas
+    + geom_point() # create scatter points
+    + geom_smooth(method = "lm") # Add the conversion line
+    + labs(x = "Amount spent on campaign", y = "Total number of conversions") # xy-Labels
 ```
 <img src="./ggplot.png" width="50%">
 
