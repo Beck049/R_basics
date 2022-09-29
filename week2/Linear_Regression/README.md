@@ -69,6 +69,7 @@ plot( fb$Spent, fb$Total_Conversion,
       xlab = "Amount spent on campaign",
       ylab = "Total number of conversions")
 ```
+<img src="./plot.png" width="50%">
 
 ### ggplot
 ```r
@@ -78,6 +79,7 @@ ggplot(fb, aes(Spent, Total_Conversion))
 + geom_smooth(method = "lm") 
 + labs(x = "Amount spent on campaign", y = "Total number of conversions")
 ```
+<img src="./ggplot.png" width="50%">
 
 ## Multiple Regressors
 ```r
@@ -128,3 +130,4 @@ F-statistic: 306.5 on 5 and 1137 DF,  p-value: < 2.2e-16
 ```r
 plot_coefs(relation)
 ```
+<img src="./coef.png" width="50%">
