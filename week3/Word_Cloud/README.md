@@ -166,6 +166,10 @@ Content:  documents: 5
 [5] given  unbelievable evil  growing trend  global governance   push    control    doubt  end times  upon us\n\nbelieve upon  name  jesus christ  repent  theres still time httpstcoqkcntgrdl
 ```
 
+:::warning
+Warnings are normal, due to using Corpus(), instead of VCorpus()
+:::
+
 ## Term Document Matrix
 
 ## Word Frequentcy
