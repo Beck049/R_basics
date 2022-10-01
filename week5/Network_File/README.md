@@ -184,3 +184,31 @@ list.vertex.attributes(net)
 ```
 
 ## Filter Network
+```r
+#filter based on attributes
+n1F <- get.inducedSubgraph(net,  which(net %v% "fan_count" >30000000)) #20000000
+
+#attempt 1
+gplot(n1F,displaylabels=TRUE) 
+
+
+#attempt 2
+par(mar=c(2,2,2,2))
+gplot(n1F,displaylabels=TRUE,displayisolates = FALSE,
+      label.pos=1,label.col="blue", mode = "fruchtermanreingold",
+      vertex.cex = get.vertex.attribute(n1F,"fan_count")/100000000) 
+
+#attempt 3
+gplot(n1F,displaylabels=TRUE,displayisolates = FALSE,
+      label.pos=1,label.col="blue", mode = "fruchtermanreingold",
+      vertex.cex = get.vertex.attribute(n1F,"fan_count")/100000000
+      ,vertex.col=factor(get.vertex.attribute(n1F,"category")) ) 
+
+
+#different modes of displaying the network
+# mode = "fruchtermanreingold"
+# mode = "circle"
+# mode = "kamadakawai"
+# mode = "mds"
+# mode = "spring"
+```
