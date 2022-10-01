@@ -80,7 +80,7 @@ x
 [1] "its a string"
 ```
 
-### logical
+### logical ()
 ```R
 # logical
 x <- TRUE
