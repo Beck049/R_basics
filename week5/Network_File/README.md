@@ -112,6 +112,75 @@ head(fb_merge, 6)
 
 ## Adding attributes from internal sources
 
+> list.vertex.attributes()
+
+> set.vertex.attributes()
+
+### check current net's vertex
+```r
+list.vertex.attributes(net)
+```
+```cml
+[1] "na"           "vertex.names"
+```
+
+### Add Indegree, Outdegree, Closeness
+```r
+set.vertex.attribute(net, "InDegree", InDegree)
+set.vertex.attribute(net, "OutDegree", OutDegree)
+set.vertex.attribute(net, "Closeness", Closeness)
+
+list.vertex.attributes(net)
+```
+```cml
+[1] "Closeness"    "InDegree"     "na"           "OutDegree"   
+[5] "vertex.names"
+```
+
+### Add Egenvector, Betweenness
+```r
+set.vertex.attribute(net, "Egenvector", Egenvector)
+set.vertex.attribute(net, "Betweenness", Betweenness)
+
+list.vertex.attributes(net)
+```
+```cml
+[1] "Betweenness"  "Closeness"    "Egenvector"   "InDegree"    
+[5] "na"           "OutDegree"    "vertex.names"
+```
+
 ## Adding attributes from external sources
+
+### add `talking_about_count`, `users_can_post`, `category` from data `fb_merge`
+```r
+set.vertex.attribute(net, "talking_about_count", 
+                          fb_merge$talking_about_count)
+set.vertex.attribute(net, "users_can_post", 
+                          fb_merge$user_post_binary)
+                          
+# set category be sub dataframe of fb_merge$category
+# if fb_merge$category not found, set its data be "others"
+category<-ifelse(fb_merge$category!="", fb_merge$category, "Others")
+set.vertex.attribute(net, "category", category)
+
+list.vertex.attributes(net)
+```
+```cml
+[1] "Betweenness"         "category"            "Closeness"           "Egenvector"         
+[5] "InDegree"            "na"                  "OutDegree"           "talking_about_count"
+[9] "users_can_post"      "vertex.names" 
+```
+
+### add `fan_count` from `fb_merge`
+```r
+set.vertex.attribute(net, "fan_count", 
+                          fb_merge$fan_count)
+list.vertex.attributes(net)
+```
+```cml
+[1] "Betweenness"         "category"            "Closeness"           "Egenvector"         
+[5] "fan_count"           "InDegree"            "na"                  "OutDegree"
+[9] "talking_about_count" "users_can_post"      "vertex.names" 
+```
 
 ## Filter Network
