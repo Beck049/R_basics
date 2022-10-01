@@ -213,7 +213,7 @@ paste(str, "or not ?")
 ```
 
 ## if else
-```R
+```R=
 a <- 200
 b <- 33
 
@@ -228,7 +228,7 @@ if (b > a) {
 
 ## while loop
 
-```R
+```R=
 i <- 1
 cnt1 <- 0
 while( i <= 6 ) {
