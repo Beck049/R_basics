@@ -20,7 +20,7 @@ thismatrix <- matrix(c(1,2,3,4,5,6), nrow = 3, ncol = 2)
 thismatrix[1, 2]
 ```
 ```cml
-[1] "cherry"
+[1] 4
 ```
 access a row
 ```R
