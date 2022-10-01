@@ -110,6 +110,43 @@ head(fb_merge, 6)
 
 ## Linear Regression
 
+### create a binary(boolean) variable, `user_can_post`
+```r
+fb_merge$user_post_binary=ifelse(fb_merge$users_can_post=="yes",1,0)
+```
+
+### predict the dependent variable of "fan_count" based on the centrality measures
+```r
+relation=lm( log(fan_count+1) ~ InDegree + OutDegree + Closeness + Betweenness + Egenvector, data = fb_merge)
+summary(relation)
+```
+```cml
+Call:
+lm(formula = log(fan_count + 1) ~ InDegree + OutDegree + Closeness + 
+    Betweenness + Egenvector, data = fb_merge)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-9.0732 -1.6645  0.2125  1.6516  6.9659 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  1.126e+01  1.473e-01  76.458  < 2e-16 ***
+InDegree     1.926e-01  1.383e-02  13.930  < 2e-16 ***
+OutDegree   -1.209e-03  1.060e-02  -0.114    0.909    
+Closeness    4.458e-01  6.811e-01   0.655    0.513    
+Betweenness -5.351e-05  1.095e-05  -4.885  1.2e-06 ***
+Egenvector   2.272e+00  4.033e+00   0.564    0.573    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.447 on 1017 degrees of freedom
+Multiple R-squared:  0.2164,	Adjusted R-squared:  0.2125 
+F-statistic: 56.17 on 5 and 1017 DF,  p-value: < 2.2e-16
+```
+
+### predict the dependent variable of "user_post_binary" based on the centrality measures?
+
 ## Adding attributes from internal sources
 
 > list.vertex.attributes()
