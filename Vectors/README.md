@@ -28,8 +28,8 @@ fruits
 [1] 5
 [1] "banana" "apple" "orange" "mango" "lemon"
 [1] "orange"
-[1] "apple" "banana" "lemon" "mango" "lemon"
-[1]"banana" "apple" "orange" "mango" "pear"
+[1] "apple" "banana" "lemon" "mango" "orange"
+[1] "banana" "apple" "orange" "mango" "pear"
 ```
 
 ## Repeat Vector
