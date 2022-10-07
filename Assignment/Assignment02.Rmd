@@ -1,0 +1,158 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Background:
+
+There is a lot of buzz around "The Merge" for the Ethereum blockchain, and it is finally here. But what is The Merge, and why is it important?
+
+The Merge is the merger of two blockchain systems: the current Ethereum Mainnet and the Beacon Chain proof-of-stake system. This merger will convert the Ethereum blockchain from a proof-of-work system to a proof-of-stake system.
+
+How much power does the Ethereum blockchain consume? According to one estimate, approximately the same amount as the Netherlands. The Merge is expected to result in a 99.9 percent reduction in the amount of power needed to operate the Ethereum blockchain, from approximately 112 terawatt hours per year to approximately 0.04 terawatt hours per year.
+
+To understand the social buzz of ethereum merge, we collected tweets using the keywords "ethereum tweets".
+
+```{r}
+library(syuzhet)
+library(wordcloud)
+library(tm)
+library(dplyr)  
+```
+
+# Question 1:
+
+Load the tweet data "ethereum_merge" using the function of readRDS
+
+(check if "ether_tweet"appeared in the enviornment)
+
+(Always check!!!)
+
+```{r}
+ether_tweet = readRDS("ethereum_merge.rds")
+```
+
+# Question 2:
+
+## Question 2.1
+
+calculate the sentiment/emotion scores for every tweet
+
+```{r}
+tweets = ether_tweet$text#the column of tweets
+sentiment <- get_nrc_sentiment(tweets) # use get_nrc_sentiment() to generate the sentiment scores
+
+head(sentiment)
+```
+
+## Question 2.2
+
+generate a barchart to show the sentiment distribution, use colSums() to sum the sentiment scores
+
+```{r}
+barplot(colSums(sentiment),
+  las = 2, # make label text perpendicular to axis
+  col = rainbow(10),
+  ylab = 'Count',
+  main = 'Sentiment Scores Tweets')
+```
+
+## Question 2.3
+
+combine the sentiment scores back to the data frame "ether_tweet" using cbind() function
+
+```{r}
+ether_tweet <- cbind(ether_tweet, sentiment)
+head(ether_tweet, 2)
+# ether_tweet_sentiment = cbind(ether_tweet,semtiment)
+```
+
+## Question 2.4
+
+Run a linear regression to predict "retweet_count" using sentiment scores.
+
+Because the outcome retweet_count is highly skewed, use log(retweet_count+1) as the outcome.
+
+```{r}
+relation <- lm(retweet_count ~ anger + anticipation + disgust + fear + joy + sadness + surprise + trust + negative + positive, data=ether_tweet)
+
+summary(relation)
+```
+
+## Question 2.5
+
+interpret the output of the linear regression
+
+|     |
+|-----|
+|     |
+
+# Question 3:
+
+## Question 3.1
+
+generate a word-frequency table to summarize these tweets
+
+```{r}
+# corpus
+corpus <- Corpus(VectorSource(ether_tweet$text))
+
+cleanset = corpus %>%
+  tm_map(tolower) %>%
+  tm_map(removeNumbers) %>%
+  tm_map(removePunctuation) %>%
+  tm_map(removeWords,c("climate","change")) %>%
+  tm_map(removeWords,stopwords('english')) 
+ 
+# term document matrix
+tdm <- TermDocumentMatrix(cleanset)
+tdm <- as.matrix(tdm)
+ 
+# word frequency list
+temp = rowSums(tdm)
+words <- sort(temp,decreasing=TRUE) 
+
+# sub dataframe
+df <-data.frame(word = names(words), freq = words) #generate a data frame with column word=names(words) and column freq=words
+
+head(df, 10)
+```
+
+## Question 3.2
+
+generate a word cloud using the wordcloud function
+
+```{r}
+set.seed(222) # this is just a number to keep the graph fixed.
+wordcloud(words = df$word,
+          freq = df$freq,
+          max.words = 100, # max number of words
+          random.order = F,
+          min.freq = 50, # no need to include infrequent words
+          colors = brewer.pal(8, 'Dark2'),
+          scale = c(5, 0.3),
+          rot.per = 0.7)
+```
+
+## Question 3.3
+
+adjust the parameters of the wordcloud to make it more clear
+
+```{r}
+wordcloud(words = df$word,
+          freq = df$freq,
+          max.words = 100, # max number of words
+          random.order = F,
+          min.freq = 200, # no need to include infrequent words
+          colors = brewer.pal(8, 'Dark2'),
+          scale = c(5, 0.3),
+          rot.per = 0.7)
+```
+
+## Question 3.4
+
+Takeaways from this word cloud:
+
+|     |
+|-----|
+|     |
